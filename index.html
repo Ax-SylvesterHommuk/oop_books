@@ -2,10 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>OOP Books</title>
+    <title>My Books OOP</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h2>Hello World!</h2>
+<section id="contact-form">
+    <div>
+        <h2>Add Books</h2>
+        <form id="contact" name="contact" accept-charset="utf-8">
+            <label><span>Title</span><input name="title" type="text" id="titleForm"/></label>
+            <label><span>Author</span><input name="author" type="text" id="authorForm"/></label>
+            <label><span>ISBN#</span><input name="isbn" type="text" id="isbnForm"/></label>
+            <input name="submit" type="submit" value="📤 Submit"/>
+            <div class="card-action">
+                <table id="masterTable">
+                    <tbody>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</section>
+<script src="classes/LS.js"></script>
+<script src="classes/Task.js"></script>
+<script src="classes/UI.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
