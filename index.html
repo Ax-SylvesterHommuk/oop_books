@@ -3,34 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>My Books OOP</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"/>
+    <title>Book List</title>
 </head>
 <body>
-<section id="contact-form">
-    <div>
-        <h2>Add Books</h2>
-        <form id="contact" name="contact" accept-charset="utf-8">
-            <label><span>Title</span><input name="title" type="text" id="titleForm"/></label>
-            <label><span>Author</span><input name="author" type="text" id="authorForm"/></label>
-            <label><span>ISBN#</span><input name="isbn" type="text" id="isbnForm"/></label>
-            <input name="submit" type="submit" value="📤 Submit"/>
-            <div class="card-action">
-                <table id="masterTable">
-                    <tbody>
-                    <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>ISBN</th>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </form>
-    </div>
-</section>
-<script src="classes/LS.js"></script>
-<script src="classes/Task.js"></script>
+<div class="container">
+    <h1>Add Book</h1>
+    <form id="book-form">
+        <div>
+            <label for="title">Title</label>
+            <input type="text" id="title" class="u-full-width">
+        </div>
+        <div>
+            <label for="author">Author</label>
+            <input type="text" id="author" class="u-full-width">
+        </div>
+        <div>
+            <label for="isbn">ISBN#</label>
+            <input type="text" id="isbn" class="u-full-width">
+        </div>
+        <div>
+            <input type="submit" value="Submit" class="u-full-width">
+        </div>
+    </form>
+    <table class="u-full-width">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="book-list"></tbody>
+    </table>
+</div>
+<script src="classes/Book.js"></script>
 <script src="classes/UI.js"></script>
+<script src="classes/LS.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
