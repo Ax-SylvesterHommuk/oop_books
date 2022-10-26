@@ -1,4 +1,4 @@
-class LS {
+class LS{
     getData(name){
         let data;
         if (localStorage.getItem(name) === null){
@@ -12,7 +12,6 @@ class LS {
     setData(name, data){
         localStorage.setItem(name, JSON.stringify(data))
     }
-
     addBook(book){
         let books = this.getData("books")
         books.push(book)
