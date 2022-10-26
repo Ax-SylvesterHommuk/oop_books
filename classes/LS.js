@@ -1,15 +1,32 @@
 class LS {
-    addBook(book){
-        //set data to the LS
-        let books;
-        if(localStorage.getItem("books") === null){
-            books = [];
+    getData(name){
+        let data;
+        if (localStorage.getItem(name) === null){
+            data = []
         } else {
-            books = JSON.parse(localStorage.getItem("books"));
+            data = JSON.parse(localStorage.getItem(name))
         }
-        books.push(book);
-        localStorage.setItem("tasks", JSON.stringify(books));
-        //log to console that task is added to LS
-        book.addedToLS();
+        return data
+    }
+
+    setData(name, data){
+        localStorage.setItem(name, JSON.stringify(data))
+    }
+
+    addBook(book){
+        let books = this.getData("books")
+        books.push(book)
+        this.setData("books", books)
+        book.addedToLS()
+    }
+
+    deleteBook(book){
+        let books = this.getData("books")
+        books.forEach(function (booksElement, booksIndex){
+            if (booksElement.isbn === book) {
+                books.splice(booksIndex, 1);
+            }
+        });
+        this.setData("books", books)
     }
 }

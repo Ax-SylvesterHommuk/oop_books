@@ -1,23 +1,29 @@
 class UI {
-    addBook(book){
-        //create list item
-        const li = document.createElement("li");
-        li.className = "collection-item";
-        li.appendChild(document.createTextNode(book.name))
-        //create link
-        const link = document.createElement("a");
-        link.className = "secondary-content";
-        link.appendChild(document.createTextNode("X"));
-        link.setAttribute("href", "#");
-        // add link to list item
-        li.appendChild(link);
-        //find list to add created list item
-        const list = document.querySelector("ul");
-        list.appendChild(li);
-        //find input to clear this value
-        const input = document.querySelector("#book-list");
-        input.value = "";
-        // log to console that task is added to UI
-        book.addedToUI();
+    addBook(title, author, isbn) {
+        const table = document.querySelector("table")
+
+        const newRow = table.insertRow()
+        const cell1 = newRow.insertCell()
+        const cell2 = newRow.insertCell()
+        const cell3 = newRow.insertCell()
+        const cell4 = newRow.insertCell()
+
+        const cross = document.createElement('a')
+
+        cross.appendChild(document.createTextNode('X'))
+        cross.className = 'blue-text text-darken-2'
+        cross.setAttribute('href', '#')
+        cell1.innerHTML = title
+        cell2.innerHTML = author
+        cell3.innerHTML = isbn
+        cell4.appendChild(cross)
+    }
+
+    deleteBook(book){
+        if (book.textContent === "X") {
+            if (confirm("Do you want to delete this book?")) {
+                book.parentElement.parentElement.remove();
+            }
+        }
     }
 }

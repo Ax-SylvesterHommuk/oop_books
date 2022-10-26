@@ -1,18 +1,26 @@
-//UI and LS objects
+ui = new UI()
+ls = new LS()
 
-ui = new UI();
-ls = new LS();
+const submitButton = document.querySelector("#submit-book")
+const inputTitle = document.querySelector("#title")
+const inputAuthor = document.querySelector("#author")
+const inputISBN = document.querySelector("#isbn")
+const table = document.querySelector("table")
 
-const form = document.querySelector("form");
-const taskInput = document.querySelector("#book-list");
+table.addEventListener("click", deleteBook)
+submitButton.addEventListener("click", addBook)
 
-form.addEventListener("submit", addBook);
+function addBook(e){
+    const book = new Book(inputTitle.value, inputAuthor.value, inputISBN.value)
+    ui.addBook(book.title, book.author, book.isbn)
+    ls.addBook(book)
+    book.addedToUI()
+    e.preventDefault()
+}
 
-function addBook(e) {
-    const book = new Book(taskInput.value);
-
-    ui.addBook(book);
-
-    ls.addBook(Book);
-    e.preventDefault();
+function deleteBook(e){
+    let book = e.target.parentElement.firstChild
+    ui.deleteBook(book)
+    book = e.target.parentElement.parentElement.children[2].innerText
+    ls.deleteBook(book)
 }
