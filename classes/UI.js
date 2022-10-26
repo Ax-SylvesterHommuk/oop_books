@@ -27,6 +27,7 @@ class UI{
         }
     }
     // Gets book from ls and adds to list
+    // Added getBooks before
     getBooks(books){
         for (let i = 0; i < books.length; i++) {
             const getRow = table.insertRow()

@@ -26,6 +26,7 @@ function deleteBook(e){
     ls.deleteBook(book)
 }
 
+// Added getBooks before
 function getBooks(){
     let books = ls.getData("books")
     ui.getBooks(books)
